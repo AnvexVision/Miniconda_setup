@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miniconda Installation Guide for Linux</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* bg-gray-900 */
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937; /* bg-gray-800 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4b5563; /* bg-gray-600 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280; /* bg-gray-500 */
+        }
+        .code-block {
+            position: relative;
+            background-color: #1f2937; /* bg-gray-800 */
+            border-radius: 0.5rem;
+            border: 1px solid #374151; /* border-gray-700 */
+        }
+        .code-scroll-wrapper {
+            overflow-x: auto;
+            padding: 1rem 1.25rem;
+        }
+        .output-block {
+            background-color: #374151; /* bg-gray-700 */
+            color: #9ca3af; /* text-gray-400 */
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
+            font-family: monospace;
+            font-size: 0.875rem;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body class="text-gray-300 antialiased">
+
+    <!-- Main Container -->
+    <div class="container mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl sm:text-5xl font-bold text-white tracking-tight">
+                Miniconda Installation & Environment Setup
+            </h1>
+            <p class="mt-4 text-lg text-cyan-400">A comprehensive guide for installing miniconda and environment setup</p>
+        </header>
+
+        <main class="space-y-10">
+            <!-- Step 1: Open Terminal -->
+            <section>
+                <h2 class="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+                    📌 Step 1: Open a Terminal
+                </h2>
+                <p class="text-gray-400">Open your preferred terminal application (e.g., GNOME Terminal, Konsole, xterm).</p>
+            </section>
+
+            <!-- Step 2: Download -->
+            <section>
+                <h2 class="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+                    📌 Step 2: Download the Installer
+                </h2>
+                <p class="text-gray-400 mb-4">Run the command to download the latest Miniconda installer for 64-bit Linux:</p>
+                <div class="code-block" data-lang="bash">
+                    <pre><code>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh</code></pre>
+                </div>
+                <div class="mt-4 bg-sky-900/50 border border-sky-700 text-sky-300 text-sm rounded-lg p-4">
+                    <b>🔍 Tip:</b> If you're using an ARM-based system (e.g., Raspberry Pi, Apple M1/M2 via VM), you'll need the aarch64 installer from the official Miniconda website.
+                </div>
+            </section>
+
+            <!-- Step 3: Verify -->
+            <section>
+                <h2 class="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+                    📌 Step 3: Verify the Installer <span class="text-sm font-medium text-gray-500">(Optional but Recommended)</span>
+                </h2>
+                <p class="text-gray-400 mb-4">Check the installer's integrity against its SHA256 hash.</p>
+                <div class="code-block" data-lang="bash">
+                    <pre><code>sha256sum Miniconda3-latest-Linux-x86_64.sh</code></pre>
+                </div>
+                <p class="text-gray-400 my-4">Compare the output with the hash listed on the official Miniconda website to ensure they match.</p>
+            </section>
+
+            <!-- Step 4: Make Executable -->
+            <section>
+                <h2 class="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+                    📌 Step 4: Make the Installer Executable
+                </h2>
+                <div class="code-block" data-lang="bash">
+                    <pre><code>chmod +x Miniconda3-latest-Linux-x86_64.sh</code></pre>
+                </div>
+            </section>
+
+            <!-- Step 5: Run Installer -->
+            <section>
+                <h2 class="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+                    📌 Step 5: Run the Installer
+                </h2>
+                <p class="text-gray-400 mb-4">Start the interactive setup:</p>
+                <div class="code-block" data-lang="bash">
+                    <pre><code>./Miniconda3-latest-Linux-x86_64.sh</code></pre>
+                </div>
+                <p class="text-gray-400 my-4">Then follow the on-screen prompts:</p>
+                <ul class="list-disc list-inside space-y-2 bg-gray-800 p-6 rounded-lg text-gray-400">
+                    <li>Press <kbd class="bg-gray-700 px-2 py-1 rounded-md">Enter</kbd> to scroll through the license agreement.</li>
+                    <li>Type <code class="bg-gray-700 text-cyan-300 px-2 py-1 rounded">yes</code> and press <kbd>Enter</kbd> to accept the license.</li>
+                    <li>Press <kbd>Enter</kbd> to confirm the installation directory (default is <code class="bg-gray-700 text-cyan-300 px-2 py-1 rounded">~/miniconda3</code>).</li>
+                    <li>Type <code class="bg-gray-700 text-cyan-300 px-2 py-1 rounded">yes</code> and press <kbd>Enter</kbd> to initialize Miniconda.</li>
+                </ul>
+            </section>
+
+            <!-- Step 6: Reload Shell -->
+            <section>
+                <h2 class="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+                    📌 Step 6: Reload the Shell
+                </h2>
+                <p class="text-gray-400 mb-4">For the changes to take effect, close and reopen your terminal, or run:</p>
+                <div class="code-block" data-lang="bash">
+                    <pre><code>source ~/.bashrc   # or source ~/.zshrc if you use Zsh</code></pre>
+                </div>
+            </section>
+
+            <!-- Step 7: Test Installation -->
+            <section>
+                <h2 class="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+                    📌 Step 7: Test the Installation
+                </h2>
+                <p class="text-gray-400 mb-4">Verify that Conda was installed correctly:</p>
+                <div class="code-block" data-lang="bash">
+                    <pre><code>conda --version</code></pre>
+                </div>
+                <p class="text-gray-400 my-4">Example output:</p>
+                <div class="output-block">conda 24.3.0</div>
+            </section>
+
+            <!-- Step 8: Create Environment -->
+            <section>
+                <h2 class="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+                    📌 Step 8: Create and Manage an Environment
+                </h2>
+                <p class="text-gray-400 mb-4">Create a new environment, activate it, and install packages.</p>
+                <div class="code-block" data-lang="bash">
+                    <pre><code># Create a new environment named 'myenv' with Python 3.11
+conda create -n myenv python=3.10 -y
+
+# Activate the environment
+conda activate myenv
+
+#Install from a requirements.txt file
+conda install --file requirements.txt 
+                or
+pip install -r requirements.txt 
+
+# Deactivate to return to the base environment
+conda deactivate</code></pre>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-16 pt-8 border-t border-gray-700">
+            <p class="text-gray-500"></p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const allCodeBlocks = document.querySelectorAll('.code-block');
+            allCodeBlocks.forEach(block => {
+                const preTag = block.querySelector('pre');
+                const codeTag = block.querySelector('code');
+                const scrollWrapper = document.createElement('div');
+                scrollWrapper.className = 'code-scroll-wrapper';
+                if (preTag) {
+                    scrollWrapper.appendChild(preTag);
+                    block.appendChild(scrollWrapper);
+                }
+                if (preTag) preTag.style.margin = '0';
+                if (codeTag) {
+                    codeTag.style.fontFamily = 'monospace';
+                    codeTag.style.color = '#e5e7eb';
+                    codeTag.style.fontSize = '0.875rem';
+                    codeTag.style.whiteSpace = 'pre';
+                }
+                const copyButton = document.createElement('button');
+                const copyIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`;
+                const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+                copyButton.innerHTML = copyIcon;
+                copyButton.className = 'copy-btn';
+                copyButton.title = 'Copy to clipboard';
+                block.appendChild(copyButton);
+                Object.assign(copyButton.style, {
+                    position: 'absolute', top: '0.5rem', right: '0.5rem', display: 'flex',
+                    alignItems: 'center', justifyContent: 'center', padding: '0.5rem',
+                    backgroundColor: '#374151', color: '#d1d5db', border: '1px solid #4b5563',
+                    borderRadius: '0.375rem', cursor: 'pointer', transition: 'all 0.2s', opacity: '0.75'
+                });
+                block.addEventListener('mouseenter', () => copyButton.style.opacity = '1');
+                block.addEventListener('mouseleave', () => copyButton.style.opacity = '0.75');
+                copyButton.addEventListener('mouseenter', () => copyButton.style.backgroundColor = '#4b5563');
+                copyButton.addEventListener('mouseleave', () => copyButton.style.backgroundColor = '#374151');
+                copyButton.addEventListener('click', () => {
+                    const codeToCopy = codeTag ? codeTag.innerText : '';
+                    const tempTextarea = document.createElement('textarea');
+                    tempTextarea.value = codeToCopy;
+                    document.body.appendChild(tempTextarea);
+                    tempTextarea.select();
+                    try {
+                        document.execCommand('copy');
+                        copyButton.innerHTML = checkIcon;
+                        copyButton.style.backgroundColor = '#059669';
+                        setTimeout(() => {
+                            copyButton.innerHTML = copyIcon;
+                            copyButton.style.backgroundColor = '#374151';
+                        }, 2000);
+                    } catch (err) {
+                        console.error('Failed to copy text: ', err);
+                        copyButton.title = 'Failed to copy';
+                    }
+                    document.body.removeChild(tempTextarea);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
